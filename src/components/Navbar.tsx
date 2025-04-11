@@ -1,7 +1,9 @@
 
+"use client";
+
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Shield } from "lucide-react";
 
 const Navbar = () => {
@@ -11,13 +13,15 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <Shield className="h-8 w-8 text-primary" />
-            <span className="ml-2 text-xl font-bold text-primary">ExamEyeVerify</span>
+            <Link href="/" className="ml-2 text-xl font-bold text-primary">
+              ExamEyeVerify
+            </Link>
           </div>
           <div className="flex items-center space-x-4">
-            <Link to="/login">
+            <Link href="/login">
               <Button variant="outline">Login</Button>
             </Link>
-            <Link to="/register">
+            <Link href="/register">
               <Button>Register</Button>
             </Link>
           </div>
