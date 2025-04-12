@@ -17,6 +17,14 @@ const Navbar = () => {
               ExamEyeVerify
             </Link>
           </div>
+          <div className="hidden md:flex items-center space-x-4">
+            <Link href="/dashboard" className="text-gray-700 hover:text-primary">
+              Dashboard
+            </Link>
+            <Link href="/results" className="text-gray-700 hover:text-primary">
+              My Results
+            </Link>
+          </div>
           <div className="flex items-center space-x-4">
             <Link href="/login">
               <Button variant="outline">Login</Button>

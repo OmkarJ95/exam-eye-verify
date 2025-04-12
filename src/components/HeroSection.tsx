@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { CheckCircle } from "lucide-react";
 
 const HeroSection = () => {
@@ -32,14 +32,14 @@ const HeroSection = () => {
               </div>
             </div>
             <div className="mt-8">
-              <Link to="/register">
+              <Link href="/register">
                 <Button size="lg" className="mr-4">
                   Get Started
                 </Button>
               </Link>
-              <Link to="/learn-more">
+              <Link href="/dashboard">
                 <Button variant="outline" size="lg">
-                  Learn More
+                  Go to Dashboard
                 </Button>
               </Link>
             </div>
