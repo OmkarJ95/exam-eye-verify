@@ -1,8 +1,30 @@
 
 import React from "react";
-import { Shield } from "lucide-react";
+import { Shield, Link as LinkIcon } from "lucide-react";
+import Link from "next/link";
 
 const Footer = () => {
+  const platformLinks = [
+    { href: "/features", label: "Features" },
+    { href: "/security", label: "Security" },
+    { href: "/pricing", label: "Pricing" },
+    { href: "/faq", label: "FAQ" }
+  ];
+
+  const companyLinks = [
+    { href: "/about", label: "About Us" },
+    { href: "/blog", label: "Blog" },
+    { href: "/contact", label: "Contact" },
+    { href: "/privacy", label: "Privacy Policy" }
+  ];
+
+  const socialLinks = [
+    { href: "https://linkedin.com", label: "LinkedIn", icon: "linkedin" },
+    { href: "https://twitter.com", label: "Twitter", icon: "twitter" },
+    { href: "https://facebook.com", label: "Facebook", icon: "facebook" },
+    { href: "https://instagram.com", label: "Instagram", icon: "instagram" }
+  ];
+
   return (
     <footer className="bg-gray-50 border-t">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
@@ -17,65 +39,64 @@ const Footer = () => {
               Take and administer tests with confidence.
             </p>
           </div>
+          
           <div>
             <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
               Platform
             </h3>
             <ul className="mt-4 space-y-4">
-              <li>
-                <a href="#" className="text-base text-gray-500 hover:text-gray-900">
-                  Features
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-base text-gray-500 hover:text-gray-900">
-                  Security
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-base text-gray-500 hover:text-gray-900">
-                  Pricing
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-base text-gray-500 hover:text-gray-900">
-                  FAQ
-                </a>
-              </li>
+              {platformLinks.map((link) => (
+                <li key={link.href}>
+                  <Link 
+                    href={link.href} 
+                    className="text-base text-gray-500 hover:text-gray-900 flex items-center gap-2"
+                  >
+                    <LinkIcon className="h-4 w-4" />
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
+          
           <div>
             <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
               Company
             </h3>
             <ul className="mt-4 space-y-4">
-              <li>
-                <a href="#" className="text-base text-gray-500 hover:text-gray-900">
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-base text-gray-500 hover:text-gray-900">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-base text-gray-500 hover:text-gray-900">
-                  Contact
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-base text-gray-500 hover:text-gray-900">
-                  Privacy
-                </a>
-              </li>
+              {companyLinks.map((link) => (
+                <li key={link.href}>
+                  <Link 
+                    href={link.href} 
+                    className="text-base text-gray-500 hover:text-gray-900 flex items-center gap-2"
+                  >
+                    <LinkIcon className="h-4 w-4" />
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
-        <div className="mt-8 border-t border-gray-200 pt-8">
-          <p className="text-base text-gray-400 text-center">
-            &copy; 2025 ExamEyeVerify. All rights reserved.
+        
+        <div className="mt-8 border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-base text-gray-400 text-center md:text-left">
+            &copy; {new Date().getFullYear()} ExamEyeVerify. All rights reserved.
           </p>
+          
+          <div className="flex space-x-4 mt-4 md:mt-0">
+            {socialLinks.map((social) => (
+              <Link 
+                key={social.href} 
+                href={social.href} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-500 hover:text-primary"
+              >
+                {React.createElement(require('lucide-react')[social.icon], { className: "h-6 w-6" })}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </footer>
