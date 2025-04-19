@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -15,7 +15,7 @@ const ExamVerification = () => {
   const [step, setStep] = useState<"camera" | "otp">("camera");
   const [otp, setOtp] = useState("");
   const { toast } = useToast();
-  const router = useRouter();
+  const navigate = useNavigate();
 
   const handleCameraVerificationComplete = () => {
     setStep("otp");
@@ -41,7 +41,7 @@ const ExamVerification = () => {
       title: "OTP Verified",
       description: "You can now start your exam",
     });
-    router.push("/exam");
+    navigate("/exam");
   };
 
   return (

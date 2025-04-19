@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Shield, Link as LinkIcon } from "lucide-react";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const platformLinks = [
@@ -19,10 +19,10 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { href: "https://linkedin.com", label: "LinkedIn", icon: "linkedin" },
-    { href: "https://twitter.com", label: "Twitter", icon: "twitter" },
-    { href: "https://facebook.com", label: "Facebook", icon: "facebook" },
-    { href: "https://instagram.com", label: "Instagram", icon: "instagram" }
+    { href: "https://linkedin.com", label: "LinkedIn", icon: "Linkedin" },
+    { href: "https://twitter.com", label: "Twitter", icon: "Twitter" },
+    { href: "https://facebook.com", label: "Facebook", icon: "Facebook" },
+    { href: "https://instagram.com", label: "Instagram", icon: "Instagram" }
   ];
 
   return (
@@ -48,7 +48,7 @@ const Footer = () => {
               {platformLinks.map((link) => (
                 <li key={link.href}>
                   <Link 
-                    href={link.href} 
+                    to={link.href} 
                     className="text-base text-gray-500 hover:text-gray-900 flex items-center gap-2"
                   >
                     <LinkIcon className="h-4 w-4" />
@@ -67,7 +67,7 @@ const Footer = () => {
               {companyLinks.map((link) => (
                 <li key={link.href}>
                   <Link 
-                    href={link.href} 
+                    to={link.href} 
                     className="text-base text-gray-500 hover:text-gray-900 flex items-center gap-2"
                   >
                     <LinkIcon className="h-4 w-4" />
@@ -86,7 +86,7 @@ const Footer = () => {
           
           <div className="flex space-x-4 mt-4 md:mt-0">
             {socialLinks.map((social) => (
-              <Link 
+              <a 
                 key={social.href} 
                 href={social.href} 
                 target="_blank" 
@@ -94,7 +94,7 @@ const Footer = () => {
                 className="text-gray-500 hover:text-primary"
               >
                 {React.createElement(require('lucide-react')[social.icon], { className: "h-6 w-6" })}
-              </Link>
+              </a>
             ))}
           </div>
         </div>

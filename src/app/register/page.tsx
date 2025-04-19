@@ -2,20 +2,20 @@
 "use client";
 
 import React, { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const { toast } = useToast();
-  const router = useRouter();
+  const navigate = useNavigate();
 
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
@@ -43,7 +43,7 @@ const Register = () => {
       title: "Registration Successful",
       description: "You have successfully registered. Please login to continue.",
     });
-    router.push("/login");
+    navigate("/login");
   };
 
   return (
@@ -85,7 +85,7 @@ const Register = () => {
           <CardFooter className="flex justify-center">
             <div className="text-sm text-gray-500">
               Already have an account?{" "}
-              <Link href="/login" className="text-primary hover:underline">
+              <Link to="/login" className="text-primary hover:underline">
                 Login
               </Link>
             </div>

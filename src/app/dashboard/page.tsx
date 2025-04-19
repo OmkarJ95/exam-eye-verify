@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, Clock, BookOpen, LockKeyhole, FileText, BarChart } from "lucide-react";
@@ -29,7 +29,7 @@ const ExamCard: React.FC<ExamCardProps> = ({
   date,
   score,
 }) => {
-  const router = useRouter();
+  const navigate = useNavigate();
 
   const statusColors = {
     available: "bg-green-100 text-green-800",
@@ -39,9 +39,9 @@ const ExamCard: React.FC<ExamCardProps> = ({
 
   const handleAction = () => {
     if (status === "available") {
-      router.push("/exam-verification");
+      navigate("/exam-verification");
     } else if (status === "completed") {
-      router.push("/results");
+      navigate("/results");
     }
   };
 

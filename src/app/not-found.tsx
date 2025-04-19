@@ -1,6 +1,6 @@
 
 import React from "react";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -16,7 +16,7 @@ export default function NotFound() {
           <p className="text-gray-500 mb-8">
             The page you are looking for doesn't exist or has been moved.
           </p>
-          <Link href="/">
+          <Link to="/">
             <Button>Return to Home</Button>
           </Link>
         </div>

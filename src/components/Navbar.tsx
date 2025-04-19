@@ -3,7 +3,7 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { Shield } from "lucide-react";
 
 const Navbar = () => {
@@ -13,23 +13,23 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <Shield className="h-8 w-8 text-primary" />
-            <Link href="/" className="ml-2 text-xl font-bold text-primary">
+            <Link to="/" className="ml-2 text-xl font-bold text-primary">
               ExamEyeVerify
             </Link>
           </div>
           <div className="hidden md:flex items-center space-x-4">
-            <Link href="/dashboard" className="text-gray-700 hover:text-primary">
+            <Link to="/dashboard" className="text-gray-700 hover:text-primary">
               Dashboard
             </Link>
-            <Link href="/results" className="text-gray-700 hover:text-primary">
+            <Link to="/results" className="text-gray-700 hover:text-primary">
               My Results
             </Link>
           </div>
           <div className="flex items-center space-x-4">
-            <Link href="/login">
+            <Link to="/login">
               <Button variant="outline">Login</Button>
             </Link>
-            <Link href="/register">
+            <Link to="/register">
               <Button>Register</Button>
             </Link>
           </div>

@@ -2,7 +2,7 @@
 "use client";
 
 import React from "react";
-import { useRouter } from "next/navigation";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
@@ -55,7 +55,7 @@ const MOCK_RESULTS = {
 };
 
 const Results = () => {
-  const router = useRouter();
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -138,7 +138,7 @@ const Results = () => {
             </Card>
 
             <div className="flex justify-center">
-              <Button onClick={() => router.push("/dashboard")}>
+              <Button onClick={() => navigate("/dashboard")}>
                 Return to Dashboard
               </Button>
             </div>

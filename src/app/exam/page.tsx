@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/navigation";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
@@ -82,7 +82,7 @@ const Exam = () => {
   const [timeLeft, setTimeLeft] = useState(60 * 60); // 60 minutes in seconds
   const [isAlertOpen, setIsAlertOpen] = useState(false);
   const [alertType, setAlertType] = useState<"submit" | "timeout" | "leave">("submit");
-  const router = useRouter();
+  const navigate = useNavigate();
   const { toast } = useToast();
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -179,7 +179,7 @@ const Exam = () => {
   const confirmSubmit = () => {
     // In a real app, we would send the answers to a backend service
     // For demo purposes, we'll just navigate to a results page
-    router.push("/results");
+    navigate("/results");
   };
 
   const handleBeforeUnload = (e: BeforeUnloadEvent) => {

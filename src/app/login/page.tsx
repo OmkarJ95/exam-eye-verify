@@ -2,21 +2,21 @@
 "use client";
 
 import React, { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [otpSent, setOtpSent] = useState(false);
   const [otp, setOtp] = useState("");
   const { toast } = useToast();
-  const router = useRouter();
+  const navigate = useNavigate();
 
   const handleSendOtp = (e: React.FormEvent) => {
     e.preventDefault();
@@ -54,7 +54,7 @@ const Login = () => {
       title: "Login Successful",
       description: "You are now logged in",
     });
-    router.push("/dashboard");
+    navigate("/dashboard");
   };
 
   return (
@@ -116,7 +116,7 @@ const Login = () => {
               ) : (
                 <span>
                   Don't have an account?{" "}
-                  <Link href="/register" className="text-primary hover:underline">
+                  <Link to="/register" className="text-primary hover:underline">
                     Register
                   </Link>
                 </span>
